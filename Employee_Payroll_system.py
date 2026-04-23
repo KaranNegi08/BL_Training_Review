@@ -26,22 +26,22 @@ class Employee(ABC):
         self.hours_worked = hours_worked
         self.hourly_rate = hourly_rate
 
-        @property
-        def base_pay(self):
-            return self._base_pay
+    @property
+    def base_pay(self):
+        return self._base_pay
         
-        @base_pay.setter
-        def base_pay(self, value):
-            if value <= 0:
-                print("Base pay must be greater than 0.")
-                exit()
+    @base_pay.setter
+    def base_pay(self, value):
+        if value <= 0:
+            print("Base pay must be greater than 0.")
+            exit()
             
-            self._base_pay = value
+        self._base_pay = value
         
 
-        @abstractmethod
-        def calculate_salary(self):
-            pass
+    @abstractmethod
+    def calculate_salary(self):
+        pass
 
 class RegularEmployee(Employee):
 
@@ -64,7 +64,7 @@ class Contractor(Employee):
         return float(self.hours_worked * self.hourly_rate)
     
 
-emp1= RegularEmployee(1,"karan","karan@gmail.com", 10000)
+emp1= RegularEmployee(1,"karan","karan@gmail.com", -1)
 print(emp1.calculate_salary())
 
 emp2= Manager(2,"dishant","dishant@gmail.com", 7000)
